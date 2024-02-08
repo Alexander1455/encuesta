@@ -6,6 +6,7 @@ import LandigPage from './pages/landing-page/LandingPage'
 import Navegador from './shared/Navegador'
 import LayoutNav from './layouts/LayoutNav'
 import NuevaEncuesta from './pages/NuevaEncuesta/NuevaEncuesta'
+import Perfil from './pages/perfil/Perfil'
 
 const App = () => {
 
@@ -14,13 +15,14 @@ const App = () => {
       <Routes>
 
         <Route element={<LayoutHome/>}>
+          
           <Route path='/' element={<NuevaEncuesta/>}/>
           <Route path='/pages/Login' element={<Login/>}/>
           <Route path='/pages/Register'  element={<Register/>}/>
           <Route path='/*' element={<p>404</p>}/>
         </Route>
         <Route element={<LayoutNav/>}>
-          <Route path=''/>
+          <Route path='/pages/Perfil' element={<Perfil/>}/>
         </Route>
       </Routes>
 
