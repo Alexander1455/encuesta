@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header__container {
+  grid-template-columns: 1fr 1fr;
+}
+
+.header__container.active {
+  grid-template-columns: 0px auto;
+}
+
+@media (width >= 1024px) {
+  .header__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .header__container.active {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
