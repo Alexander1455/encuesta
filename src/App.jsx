@@ -5,6 +5,7 @@ import LayoutHome from './layouts/LayoutHome'
 import LandigPage from './pages/landing-page/LandingPage'
 import Navegador from './shared/Navegador'
 import LayoutNav from './layouts/LayoutNav'
+import NuevaEncuesta from './pages/NuevaEncuesta/NuevaEncuesta'
 
 const App = () => {
 
@@ -13,7 +14,7 @@ const App = () => {
       <Routes>
 
         <Route element={<LayoutHome/>}>
-          <Route path='/' element={<Navegador/>}/>
+          <Route path='/' element={<NuevaEncuesta/>}/>
           <Route path='/pages/Login' element={<Login/>}/>
           <Route path='/pages/Register'  element={<Register/>}/>
           <Route path='/*' element={<p>404</p>}/>
