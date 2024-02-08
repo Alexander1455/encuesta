@@ -14,7 +14,7 @@ const Header = () => {
   }, [active]);
 
   return (
-    <header className="bg-blue-500 text-white px-4 py-4 sticky top-0 overflow-hidden">
+    <header className="bg-blue-500 text-white px-4 py-4 sticky top-0 overflow-hidden z-50">
       <div
         className={`container header__container mx-auto w-full grid grid-flow-col items-center ${
           active ? "active" : ""
