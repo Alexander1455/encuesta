@@ -1,51 +1,70 @@
-const Header = () => {
-    return (
-      <header className="bg-blue-500 text-white p-4 py-12">
-        <div className="container mx-auto flex items-center justify-between">
-          {/* Título de la aplicación */}
-          <div className="text-5xl font-bold">EncuestaPlus</div>
-  
-          {/* Barra de búsqueda */}
-          <div className="flex items-center space-x-4">
-            <input
-              type="text"
-              placeholder="Buscar..."
-              className="border p-2 px-12 rounded"
-            />
-            <button className="bg-white text-blue-500 p-2 rounded">
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke-width="1.5" 
-            stroke="currentColor" 
-            class="w-6 h-6"
-            >
-            <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" 
-            />
-</svg>
+import { useEffect } from "react";
+import { useRef } from "react";
+import { useState } from "react";
 
-            </button>
-          </div>
-  
-          {/* Botones "Responder Encuesta", "Nueva Encuesta" y "Acceder" */}
-          <div className="flex items-center space-x-4">
-            <button className="bg-white text-blue-500 px-4 py-2 rounded text-2xl">
-              Responder Encuesta
-            </button>
-            <button className="bg-white text-blue-500 px-4 py-2 rounded text-2xl">
-              Nueva Encuesta
-            </button>
-            <button className="bg-white text-blue-500 px-4 py-2 rounded text-2xl">
-              Acceder
-            </button>
-          </div>
+const Header = () => {
+  const [active, setActive] = useState(false);
+
+  const inputRef = useRef();
+
+  useEffect(() => {
+    if (active) {
+      inputRef.current.focus();
+    }
+  }, [active]);
+
+  return (
+    <header className="bg-blue-500 text-white px-4 py-4 sticky top-0 overflow-hidden">
+      <div
+        className={`container header__container mx-auto w-full grid grid-flow-col items-center ${
+          active ? "active" : ""
+        }`}
+      >
+        <div className={`overflow-hidden ${active ? "w-0 lg:w-auto" : ""}`}>
+          <h2 className="text-xl md:text-2xl lg:text-3xl  font-bold">
+            EncuestaPlus
+          </h2>
         </div>
-      </header>
-    );
-  };
-  
-  export default Header
+
+        <div className="flex justify-self-end items-center relative w-full">
+          <input
+            type="text"
+            ref={inputRef}
+            placeholder="Buscar..."
+            className={`rounded py-2 text-black ${
+              active
+                ? "w-full pr-12 pl-4"
+                : "w-0 pr-0 pl-0 lg:w-full lg:pr-12 lg:pl-4"
+            }`}
+            onBlur={() => setActive(false)}
+          />
+          <svg
+            xmlns="http:www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            stroke="currentColor"
+            onClick={() => setActive(!active)}
+            className={`w-6 h-6 absolute right-4 duration-500 ${
+              active ? "text-gray-400" : "text-white lg:text-gray-400"
+            }`}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+        </div>
+
+        <div className="hidden lg:inline-block lg:justify-self-end">
+          <button className="bg-white text-blue-500 px-4 py-2 rounded duration-300 hover:bg-blue-400 hover:text-white">
+            Crear Encuesta
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
