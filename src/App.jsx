@@ -1,23 +1,28 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Saludo from './Saludo'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Header from './pages/Header'
-import Footer from './pages/Footer'
+import Login from './pages/login/Login'
+import Register from './pages/register/Register'
 import LayoutHome from './layouts/LayoutHome'
 import LandigPage from './pages/landing-page/LandingPage'
+import Navegador from './shared/Navegador'
+import LayoutNav from './layouts/LayoutNav'
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <Routes>
+
         <Route element={<LayoutHome/>}>
-          <Route path='/' element={<LandigPage/>}/>
+          <Route path='/' element={<Navegador/>}/>
           <Route path='/pages/Login' element={<Login/>}/>
           <Route path='/pages/Register'  element={<Register/>}/>
+          <Route path='/*' element={<p>404</p>}/>
+        </Route>
+        <Route element={<LayoutNav/>}>
+          <Route path=''/>
         </Route>
       </Routes>
+
     </BrowserRouter>
   )
 }

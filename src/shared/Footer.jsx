@@ -7,14 +7,16 @@ const Footer = () => {
         {/* Texto random corto y logo */}
         <div className="flex items-center space-x-2">
           {/* Cuadrado o Logo (reemplazar) */}
-          <div className="w-8 h-8 bg-blue-500"></div>
+          <div className="size-16">
+            <img src="./src/images/logoshort.webp" className=""/>
+          </div>
           <p className="text-sm">Tu voz cuenta, tus encuestas importan. 
           <p class="break-after-column">¡EncuestaPlus, donde la opinión se convierte en datos!</p></p>
 
         </div>
 
         {/* Useful Links */}
-        <div>
+        <div className="py-10">
           <h4 className="font-bold text-lg">Useful Links</h4>
           <ul>
             <li>
