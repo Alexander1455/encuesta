@@ -7,6 +7,7 @@ import Navegador from './shared/Navegador'
 import LayoutNav from './layouts/LayoutNav'
 import NuevaEncuesta from './pages/NuevaEncuesta/NuevaEncuesta'
 import Perfil from './pages/perfil/Perfil'
+import MuestraEncuesta from './pages/muestraencuesta/MuestraEncuesta'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route element={<LayoutHome/>}>
           
           <Route path='/' element={<NuevaEncuesta/>}/>
+          <Route path='/pages/MuestraEncuesta' element={<MuestraEncuesta/>}/>
           <Route path='/pages/Login' element={<Login/>}/>
           <Route path='/pages/Register'  element={<Register/>}/>
           <Route path='/*' element={<p>404</p>}/>
