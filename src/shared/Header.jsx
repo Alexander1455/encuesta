@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [active, setActive] = useState(false);
@@ -21,9 +22,11 @@ const Header = () => {
         }`}
       >
         <div className={`overflow-hidden ${active ? "w-0 lg:w-auto" : ""}`}>
-          <h2 className="text-xl md:text-2xl lg:text-3xl  font-bold">
-            EncuestaPlus
-          </h2>
+          <Link to="/">  
+            <h2 className="text-xl md:text-2xl lg:text-3xl  font-bold">
+              EncuestaPlus
+            </h2>
+          </Link>
         </div>
 
         <div className="flex justify-self-end items-center relative w-full">
@@ -58,9 +61,9 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:inline-block lg:justify-self-end">
-          <button className="bg-white text-blue-500 px-4 py-2 rounded duration-300 hover:bg-blue-400 hover:text-white">
+          <Link to="/crearEncuesta" className="bg-white text-blue-500 px-4 py-2 rounded duration-300 hover:bg-blue-400 hover:text-white">
             Crear Encuesta
-          </button>
+          </Link>
         </div>
       </div>
     </header>
