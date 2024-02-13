@@ -1,13 +1,35 @@
+import { useForm } from "react-hook-form";
+
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleOnSubmit = (data) => {
+    console.log(data);
+    // usuario es un correo, si el usuario esta vacio,
+    // si el password esta vacio, si el paswotd tiene menos de 8 digis
+
+    // fetch
+
+    // redireccionar al dashboard
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+    <form
+      onSubmit={handleSubmit(handleOnSubmit)}
+      className="min-h-screen flex flex-col items-center justify-center bg-gray-300"
+      noValidate
+    >
       <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
         <div className="font-medium self-center text-xl sm:text-2xl uppercase text-gray-800">
           Login To Your Account
         </div>
 
         <div className="mt-10">
-          <form action="#">
+          <div action="#">
             <div className="flex flex-col mb-6">
               <label
                 htmlFor="email"
@@ -36,7 +58,19 @@ const Login = () => {
                   name="email"
                   className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
                   placeholder="E-Mail Address"
+                  {...register("email", {
+                    required: "El correo es requerido",
+                    pattern: {
+                      value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                      message: "El correo no es valido",
+                    },
+                  })}
                 />
+                {errors.email && (
+                  <p className="text-red-500 absolute text-sm">
+                    {errors?.email?.message}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -69,7 +103,19 @@ const Login = () => {
                   name="password"
                   className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
                   placeholder="Password"
+                  {...register("password", {
+                    required: "El password es requerido",
+                    minLength: {
+                      value: 8,
+                      message: "El password debe tener al menos 8 digitos",
+                    },
+                  })}
                 />
+                {errors.password && (
+                  <p className="text-red-500 absolute text-sm">
+                    {errors?.password?.message}
+                  </p>
+                )}
               </div>
             </div>
 
@@ -105,7 +151,7 @@ const Login = () => {
                 </span>
               </button>
             </div>
-          </form>
+          </div>
         </div>
         <div className="flex justify-center items-center mt-6">
           <a
@@ -130,7 +176,7 @@ const Login = () => {
           </a>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
