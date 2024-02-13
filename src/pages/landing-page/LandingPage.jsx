@@ -38,7 +38,7 @@ const LandigPage = () => {
               <h2 className="text-3xl font-semibold text-gray-800">
                 Sobre Nosotros
               </h2>
-              <div className="w-72 border-b-4 py-1 border-orange-300"></div>
+              <div className="w-72 border-b-4 py-1 border-white"></div>
             </div>
             <p className="mt-20 text-white text-2xl">
               Bienvenido a EncuestaPlus, la plataforma líder en la creación y
@@ -53,7 +53,7 @@ const LandigPage = () => {
         <section className="py-10 bg-[#6194cd]">
           <div className="mb-12 flex flex-col items-center justify-center">
             <h2 className="text-5xl font-semibold text-gray-800">Team</h2>
-            <div className="w-24 border-b-4 py-1 border-yellow-400"></div>
+            <div className="w-36 border-b-4 py-1 text-white"></div>
           </div>
           <div className="grid gap-2 md:grid-cols-4 content-center">
             <div className="relative mx-1">
@@ -103,7 +103,7 @@ const LandigPage = () => {
           <div className="container mx-auto px-24 py-24">
             <div className="mb-12 flex flex-col items-center justify-center">
               <h3 className="text-3xl">Our Services</h3>
-              <div className="w-48 border-b-4 py-1 border-yellow-400"></div>
+              <div className="w-48 border-b-4 py-1 border-white-400"></div>
             </div>
             <div className="m-4 flex flex-wrap text-center">
               <div className="w-full p-4 lg:w-1/3">
@@ -115,7 +115,7 @@ const LandigPage = () => {
                   viewBox="0 0 24 24" 
                   stroke-width="1.5" 
                   stroke="currentColor" 
-                  className="mb-3 inline-block h-20 w-20 text-yellow-300"
+                  className="mb-3 inline-block h-20 w-20 text-white"
                   >
                   <path 
                   stroke-linecap="round" 
@@ -139,7 +139,7 @@ const LandigPage = () => {
                   fill="none" 
                   viewBox="0 0 24 24"
                   stroke="currentColor" 
-                  className="mb-3 inline-block h-20 w-20 text-yellow-300"
+                  className="mb-3 inline-block h-20 w-20 text-white"
                   >
                   <path 
                   stroke-linecap="round" 
@@ -164,7 +164,7 @@ const LandigPage = () => {
                     viewBox="0 0 24 24" 
                     stroke-width="1.5" 
                     stroke="currentColor" 
-                    className="mb-3 inline-block h-20 w-20 text-yellow-300"
+                    className="mb-3 inline-block h-20 w-20 text-white"
                   >
                     <path 
                       stroke-linecap="round" 
