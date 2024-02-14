@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useTokenStore } from '../../store/useTokenStore';
 
 const MuestraEncuesta = () => {
   const [encuestas, setEncuestas] = useState([]);
-
+  const { token } = useTokenStore()
   useEffect(() => {
     const obtenerEncuestas = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/user/123456/encuestas');
+        const response = await axios.get('http://127.0.0.1:8000/api/user/encuestas', {headers:{Authorization:token}});
         setEncuestas(response.data);
         console.log(response.data);
         console.log(encuestas);
@@ -20,7 +21,7 @@ const MuestraEncuesta = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-300">
+    <div className="overflow-y-scroll flex flex-col items-center justify-center bg-gray-300">
       <div className="py-8">
         {encuestas.map((encuesta, index) => (
           <div className='py-8'>

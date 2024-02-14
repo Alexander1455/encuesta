@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useTokenStore } from "../../store/useTokenStore";
 import { useNavigate } from 'react-router-dom'
+import { axiosApi } from "../../api/axios-config";
 
 const Login = () => {
   const {
@@ -11,10 +12,20 @@ const Login = () => {
   
   const { setToken } = useTokenStore()
   const navegate = useNavigate()
-  const handleOnSubmit = (data) => {
-    console.log(data);
-    setToken("holamundo")
-    navegate("/pages/MuestraEncuesta")
+  const handleOnSubmit = async(data) => {
+    const params = new URLSearchParams({email:data.email, password:data.password})
+
+    const res = await axiosApi.post("/api/login?"+params.toString())
+      console.log(res);
+      if (res.status === 200){
+        setToken(res.data.token.access_token)
+        navegate("/pages/MuestraEncuesta")
+      }
+
+      // console.log(data)
+      // console.log(params.toString())
+    // setToken("holamundo")
+    // navegate("/pages/MuestraEncuesta")
     // usuario es un correo, si el usuario esta vacio,
     // si el password esta vacio, si el paswotd tiene menos de 8 digis
 

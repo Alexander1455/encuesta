@@ -22,11 +22,9 @@ const App = () => {
           <Route element={<LayoutScurity />}>
             <Route element={<LayoutNav />}>
               <Route path="/pages/Perfil" element={<Perfil />} />
+              <Route path="/pages/MuestraEncuesta" element={<MuestraEncuesta />}/>
             </Route>
-            <Route
-              path="/pages/MuestraEncuesta"
-              element={<MuestraEncuesta />}
-            />
+            <Route path="/pages/MuestraEncuesta" element={<MuestraEncuesta />}/>
             <Route path="/crearEncuesta" element={<NuevaEncuesta />} />
           </Route>
         </Route>

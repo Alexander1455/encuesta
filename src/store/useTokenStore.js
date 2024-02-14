@@ -5,7 +5,7 @@ export const useTokenStore = create(
   persist(
     (set) => ({
       token: null,
-      setToken: (token) => set({ token: token }),
+      setToken: (token) => set({ token: `Bearer ${token}` }),
     }),
     {
       name: "token",

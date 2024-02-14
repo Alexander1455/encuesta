@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { axiosApi } from '../../api/axios-config'
 
 const Register = () => {
   const {
@@ -9,12 +10,11 @@ const Register = () => {
   } = useForm();
 
   const hola = async (data) => {
-    const user = { id_usuario: parseInt(data.id_usuario), name:data.Name, lastname:data.LastName, age:data.age, email:data.email, password:data.password };
-    const res = await axios.post("http://127.0.0.1:8000/api/insert", user);
+    const user = {name:data.Name, lastname:data.LastName, age:data.age, email:data.email, password:data.password };
+    const res = await axiosApi.post(`/api/insert`, user);
     console.log(res);
     console.log(user)
   };
-  console.log(errors);
   return (
     <>
       <link
@@ -30,42 +30,6 @@ const Register = () => {
 
           <div class="mt-10">
             <form onSubmit={handleSubmit(hola)}>
-              <div class="flex flex-col mb-6">
-                <label class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">
-                  ID-Usuario:
-                </label>
-                <div class="relative">
-                  <div class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-6 h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    type="text"
-                    name="id_usuario"
-                    class="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                    placeholder="ID USUARIO"
-                    {...register("id_usuario", { required: "es requerido <3" })}
-                  />
-                  {errors.id_usario && (
-                    <p className="text-red-500 absolute text-sm">
-                      {errors?.id_usario?.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
               <div class="flex flex-col mb-6">
                 <label class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600">
                   Name:
