@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useTokenStore } from "../../store/useTokenStore";
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const {
@@ -6,9 +8,13 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  
+  const { setToken } = useTokenStore()
+  const navegate = useNavigate()
   const handleOnSubmit = (data) => {
     console.log(data);
+    setToken("holamundo")
+    navegate("/pages/MuestraEncuesta")
     // usuario es un correo, si el usuario esta vacio,
     // si el password esta vacio, si el paswotd tiene menos de 8 digis
 
