@@ -22,10 +22,8 @@ const Header = () => {
         }`}
       >
         <div className={`overflow-hidden ${active ? "w-0 lg:w-auto" : ""}`}>
-          <Link to="/">  
-            <h2 className="text-xl md:text-2xl lg:text-3xl  font-bold">
-              EncuestaPlus
-            </h2>
+          <Link to="/">
+            <img src="./src/images/logo.webp" className="h-16" />
           </Link>
         </div>
 
@@ -61,7 +59,10 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:inline-block lg:justify-self-end">
-          <Link to="/crearEncuesta" className="bg-white text-blue-500 px-4 py-2 rounded duration-300 hover:bg-blue-400 hover:text-white">
+          <Link
+            to="/crearEncuesta"
+            className="bg-white text-blue-500 px-4 py-2 rounded duration-300 hover:bg-blue-400 hover:text-white"
+          >
             Crear Encuesta
           </Link>
         </div>
